@@ -1,3 +1,53 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +58,7 @@ body {
     width: 100%;
 
     font-family: 'Montserrat', sans-serif;
-    color: #006837;
+   /*  color: #006837; */
     background-color: #f2f2f2;
 
     display: flex;
@@ -17,61 +67,70 @@ body {
     align-items: center;
 }
 
-.container {
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 h1 {
+    margin-bottom: 10px;
     font-size: 36px;
+    font-weight: 300;
     color: #006837;
     text-transform: uppercase;
     align-items: flex-start;
 }
 
-.inner-container {
-    font-weight: medium;
-}
-
-div div {
-    padding-top: 10px;
-    padding-left: 10px;
-    margin-left: 10px;
-
+.outer-container {
     font-size: 16px;
     max-width: 520px;
     height: auto;
 
-    color: #4467745;
     background-color: #f9c582;
 
     align-items: flex-start;
 }
 
-p {
-    margin-left: 10px;
-    padding-left: 10px;
-    font-style: italic;
+.inner-container {
+    padding: 20px;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 
+p {
+    color: #006837;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-style: italic;
+    font-weight: 300;
+    color: #006837
+}
+
 input {
-    margin: 15px;
-    padding-left: 10px;
-    width: 100%;
+    padding-left: 20px;
 
     font-size: 16px;
-    font-weight: medium;
-    max-width: 480px;
+    font-weight: 500;
+    /* max-width: 480px; */
     height: 64px;
 
-    color: #98a991;
     outline: none;
     border: none;
 }
 
-
+input::placeholder {
+    color: #98a991;
+    letter-spacing: 0.05rem;
+}
 
 button {
     height: 120px;
@@ -79,7 +138,7 @@ button {
 
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 21px;
+    font-size: 36px;
 
     background-color: #f9c582;
     color: #006837;
@@ -92,6 +151,18 @@ button {
     bottom: 20px;
 }
 
-media screen and (min-width: 520px) ? {
+@media screen and (max-width: 520px) {
+    .main-container {
+        position: absolute;
+        top: 20%;
+    }
 
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 100% - 40px;
+    }
 }
